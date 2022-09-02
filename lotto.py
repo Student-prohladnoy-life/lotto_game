@@ -73,14 +73,13 @@ class Card:
             if item == num:
                 self.__data[index] = self.__crossednum
                 return
-        raise ValueError(f'Number not in card: {num}')
+        raise ValueError(f'Такой цифры нет в карточке: {num}')
 
     def closed(self) -> bool:
         return set(self.__data) == {self.__emptynum, self.__crossednum}
 
 class Game:
     __usercard = None
-    __usercard2 = None
     __compcard = None
     __numkegs = 90
     __kegs = []
@@ -104,7 +103,7 @@ class Game:
         print(f'----- Ваша карточка ------\n{self.__usercard}')
         print(f'-- Карточка компьютера ---\n{self.__compcard}')
 
-        answer = input('Зачеркнуть цифру? (y/n)').lower().strip()
+        answer = input('Зачеркнуть цифру? (y/n) ').lower().strip()
         if answer == 'y' and not keg in self.__usercard or \
                 answer != 'y' and keg in self.__usercard:
             return 2
